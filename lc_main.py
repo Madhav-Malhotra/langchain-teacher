@@ -2,7 +2,7 @@ import os
 import streamlit as st
 from langchain.chat_models import ChatOpenAI
 from langchain.schema import HumanMessage, AIMessage
-from langsmith import Client
+#from langsmith import Client
 from langchain.callbacks.base import BaseCallbackHandler
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder, HumanMessagePromptTemplate
 from langchain.memory import ConversationBufferMemory
@@ -68,7 +68,7 @@ lesson_guides = {
 }
 
 # Initialize LangSmith client
-client = Client()
+# client = Client()
 
 # Lesson selection sidebar
 lesson_selection = st.sidebar.selectbox("Select Lesson", list(lesson_guides.keys()))
@@ -93,7 +93,7 @@ st.write(lesson_description)
 
 # Message handling and interaction
 def send_feedback(run_id, score):
-    client.create_feedback(run_id, "user_score", score=score)
+    pass #client.create_feedback(run_id, "user_score", score=score)
 
 for msg in st.session_state["messages"]:
     if isinstance(msg, HumanMessage):
