@@ -4,3 +4,4 @@ streamlit
 anthropic
 pydantic<2
 langchain_community
+python-dotenv
